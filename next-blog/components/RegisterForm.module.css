@@ -1,0 +1,35 @@
+.form {
+  border-radius: var(--border-radius);
+  background: var(--card-color);
+  margin: 5em auto;
+  padding: 2em;
+  max-width: 500px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.form h2 {
+  color: #adb5bd;
+  text-align: center;
+}
+
+.button_width {
+  width: 30%;
+  margin: 0 auto;
+}
+
+.options {
+  text-align: center;
+  margin-top: 0.5em;
+  margin-bottom: 0;
+}
+
+.options a {
+  color: #adb5bd;
+}
+
+.options a:hover{
+  color: var(--primary-purple);
+}

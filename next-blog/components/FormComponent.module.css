@@ -1,0 +1,18 @@
+.wrapper {
+  margin-bottom: 0.5em;
+}
+
+.wrapper input {
+  width: 100%;
+  padding: 0.25em 0.75em;
+  border-radius: var(--border-radius);
+  margin: 0 auto;
+  border: 1px solid #495057;
+  background: var(--primary-black);
+  color: #8a9198;
+}
+
+.wrapper input:hover,
+.wrapper input:focus {
+  outline:3px solid #2c3b53;
+}
