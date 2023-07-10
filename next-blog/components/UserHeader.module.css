@@ -1,0 +1,33 @@
+.header_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--max-width);
+  margin: 2em auto;
+  width: 90vw;
+  color: white;
+}
+
+.icons {
+  display: flex;
+  gap: 1em;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header_link {
+  border: none;
+  background: var(--primary-purple);
+  display: flex;
+  width: 30%;
+  align-items: center;
+  padding: 1em 1.5em;
+  border-radius: 0.25em;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.header_link:hover {
+  background: #4f1fae;
+}

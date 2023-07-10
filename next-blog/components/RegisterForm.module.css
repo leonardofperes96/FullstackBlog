@@ -20,6 +20,10 @@
   margin: 0 auto;
 }
 
+.form input{
+  padding: 2em 1em;
+}
+
 .options {
   text-align: center;
   margin-top: 0.5em;

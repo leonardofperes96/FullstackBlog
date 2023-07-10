@@ -27,7 +27,7 @@ const LoginForm = () => {
       return;
     }
 
-    router.replace("/user");
+    router.replace("/users");
     setEmail("");
     setPassword("");
     setFormError("");
@@ -42,11 +42,13 @@ const LoginForm = () => {
           name="Email"
           type="email"
           value={email}
+          placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
         />
         <FormComponent
           name="Password"
           type="password"
+          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />

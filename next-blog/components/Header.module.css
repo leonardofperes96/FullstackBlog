@@ -51,17 +51,4 @@
   }
 }
 
-@media (max-width: 400px) {
-  .header_container {
-    flex-direction: column;
-    height: 11rem;
-  }
-  .header_links {
-    flex-direction: column;
-    gap: 0.25em;
-    padding: 0.25em 0;
-  }
-  .link {
-    margin-bottom: 0.5em;
-  }
-}
+

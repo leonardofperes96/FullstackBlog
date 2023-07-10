@@ -1,0 +1,20 @@
+.post_container {
+  max-width: 800px;
+  margin: 2em auto;
+  background: #ccd0d5;
+  border-radius: 0.25em;
+  display: grid;
+  justify-content: space-between;
+  align-items: center;
+  width: 90vw;
+  grid-template-columns: minmax(300px, 1fr);
+}
+
+.post_container img {
+  max-width: 100%;
+  width: 90vw;
+}
+
+.post_header, .body{
+    padding: 0.5em;
+}

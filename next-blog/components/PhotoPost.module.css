@@ -1,0 +1,35 @@
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: 90vw;
+}
+
+.container label {
+  color: white;
+}
+
+.container input {
+  width: 70%;
+  padding: 0.75em 1.25em;
+  margin-top: 0.5em;
+}
+
+.container button {
+  margin-top: 0.5em;
+  font-size: 1rem;
+  padding: 0.75em 1.5em;
+}
+
+@media (min-width: 600px) {
+  .container input {
+    width: 55%;
+    padding: 0.75em 1.25em;
+    margin-top: 0.5em;
+  }
+}
+
+@media (max-width: 400px) {
+  .container input {
+    width: 90%;
+  }
+}

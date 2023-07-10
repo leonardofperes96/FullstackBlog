@@ -3,7 +3,7 @@ import { connectDatabase, getUser } from "@/utils/db";
 import { checkPassword } from "@/utils/password-utils";
 import NextAuth from "next-auth";
 
-const authOptions = {
+export const authOptions = {
   secret: process.env.AUTH_SECRET,
   session: {
     strategy: "jwt",
@@ -33,7 +33,10 @@ const authOptions = {
           throw new Error("Invalid Credentials.");
         }
 
-        return { email: registeredUser.email };
+        return {
+          email: registeredUser.email,
+          name: registeredUser.username,
+        };
       },
     }),
   ],

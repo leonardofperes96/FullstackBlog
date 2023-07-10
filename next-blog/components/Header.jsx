@@ -1,6 +1,12 @@
 import styles from "./Header.module.css";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
+import LoadingSpinner from "./LoadingSpinner";
 const Header = () => {
+  const { data: session, status } = useSession();
+
+  const loading = status === "loading";
+
   return (
     <header className={styles.header}>
       <div className={styles.header_container}>
@@ -9,22 +15,20 @@ const Header = () => {
         </Link>
         <nav>
           <ul className={styles.header_links}>
-            <li>
-              <Link className={styles.link} href="/login">
-                Login
-              </Link>
-            </li>
-
-            <li>
-              <Link className={styles.link} href="/post">
-                Post
-              </Link>
-            </li>
-            <li>
-              <Link className={styles.link} href="/user">
-                User
-              </Link>
-            </li>
+            {!session && (
+              <li>
+                <Link className={styles.link} href="/login">
+                  Login
+                </Link>
+              </li>
+            )}
+            {session && (
+              <li>
+                <Link className={styles.link} href="/users">
+                  User
+                </Link>
+              </li>
+            )}
           </ul>
         </nav>
       </div>

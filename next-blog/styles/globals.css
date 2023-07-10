@@ -56,7 +56,7 @@ h3 {
   font-size: 1.25rem;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 700px) {
   h1 {
     font-size: 3rem;
   }
@@ -78,6 +78,7 @@ h3 {
   border: 1px solid transparent;
   border-radius: var(--border-radius);
   color: white;
+  cursor: pointer;
   transition: 0.3s;
 }
 
@@ -88,4 +89,37 @@ h3 {
 .error {
   color: red;
   margin-bottom: 0;
+}
+
+.page {
+  min-height: 60vh;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5% auto;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  width: 6rem;
+  height: 6rem;
+  border: 5px solid var(--primary-purple);
+  border-radius: 50%;
+  border-top-color: gray;
+  animation: spinner 2s linear infinite;
+}
+.loading-center {
+  margin: 10% auto;
+}
+
+.no-posts{
+  color: white;
 }
