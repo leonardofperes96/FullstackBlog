@@ -4,20 +4,27 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { connectDatabase, getCollection } from "@/utils/db";
 import { getServerSession } from "next-auth/next";
 import { useRouter } from "next/router";
+import Head from "next/head";
 const EditPostPage = (props) => {
-  const router = useRouter();
-  const postId = router.query.id;
   const { posts } = props;
 
   return (
     <>
       <UserHeader />
+
       {posts && (
-        <EditPost
-          url={posts.photoUrl}
-          caption={posts.caption}
-          hashtags={posts.hashtags}
-        />
+        <>
+          <Head>
+            <title>{posts.caption || "Post Title"}</title>
+            <meta name="edit-post" content={posts.caption || ""} />
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
+          <EditPost
+            url={posts.photoUrl}
+            caption={posts.caption}
+            hashtags={posts.hashtags}
+          />
+        </>
       )}
     </>
   );

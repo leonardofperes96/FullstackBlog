@@ -4,6 +4,7 @@
   --border-radius: 0.5em;
   --white: #fff;
   --primary-purple: #712cf9;
+  --primary-green: #2cb67d;
   --primary-black: #212529;
   --secondary-black: #1b1b1d;
   --card-color: #323234;
@@ -35,6 +36,10 @@ body {
   font-family: "Roboto", Georgia, "Times New Roman", Times, serif;
   background: var(--secondary-black);
   line-height: 1.6;
+}
+
+img {
+  border-radius: 0.25em;
 }
 
 a {
@@ -120,6 +125,6 @@ h3 {
   margin: 10% auto;
 }
 
-.no-posts{
+.no-posts {
   color: white;
 }

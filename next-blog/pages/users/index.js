@@ -1,50 +1,46 @@
 import UserHeader from "@/components/UserHeader";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { getServerSession } from "next-auth/next";
-
+import { useGetCollections } from "@/hooks/useGetCollections";
 import { authOptions } from "../api/auth/[...nextauth]";
 import { getUser } from "@/utils/db";
 import clientPromise from "@/lib/mongodb";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import NoContent from "@/components/NoContent";
 import PostList from "@/components/PostList";
+import Head from "next/head";
 
 const UserPage = (props) => {
-  const [posts, setPosts] = useState(null);
-  const [loading, setLoading] = useState(false);
   const [deleteState, setDeleteState] = useState(false);
-
-  useEffect(() => {
-    const getAllPhotos = async () => {
-      setLoading(true);
-      const response = await fetch("/api/users/userPosts");
-      const data = await response.json();
-      const filterUserPosts = data.posts.filter(
-        (item) => item.userId === props.user.userId
-      );
-
-      setPosts(filterUserPosts);
-      setLoading(false);
-    };
-    getAllPhotos();
-  }, [deleteState]);
+  const { data, loading, error } = useGetCollections(
+    "/api/users/userPosts",
+    deleteState
+  );
 
   if (loading) {
     return <LoadingSpinner />;
   }
 
-  if (!posts) {
+  if (!data) {
     return;
   }
+
+  const filterPosts =
+    data && data.posts.filter((post) => post.userId === props.user.userId);
 
   return (
     <div className="page">
       <UserHeader />
-      {posts.length === 0 && (
+      {filterPosts.length === 0 && (
         <NoContent message="You haven't made any posts yet." />
       )}
+      <Head>
+        <title>{props.session.user.name || "User Page"}</title>
+        <meta name="user-page" content="Users page" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <PostList
-        posts={posts}
+        posts={filterPosts}
         deleteState={deleteState}
         setDeleteState={setDeleteState}
       />
@@ -67,6 +63,16 @@ export async function getServerSideProps({ req, res }) {
   const client = await clientPromise;
 
   const user = await getUser(client, "blog", "users", session.user.email);
+
+  if (!user) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/login",
+      },
+      props: {},
+    };
+  }
 
   return {
     props: {

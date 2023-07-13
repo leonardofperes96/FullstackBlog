@@ -1,7 +1,8 @@
 import styles from "./Header.module.css";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
-import LoadingSpinner from "./LoadingSpinner";
+import { signOut } from "next-auth/react";
+
 const Header = () => {
   const { data: session, status } = useSession();
 
@@ -23,11 +24,18 @@ const Header = () => {
               </li>
             )}
             {session && (
-              <li>
-                <Link className={styles.link} href="/users">
-                  User
-                </Link>
-              </li>
+              <>
+                <li>
+                  <Link className={styles.link} href="/users">
+                    User
+                  </Link>
+                </li>
+                <li>
+                  <button onClick={() => signOut()} className={styles.link}>
+                    Logout
+                  </button>
+                </li>
+              </>
             )}
           </ul>
         </nav>

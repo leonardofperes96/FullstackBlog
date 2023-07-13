@@ -1,0 +1,37 @@
+.posts {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+  background: #282a36;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid #efefef;
+  color: white;
+  word-break: break-word;
+}
+
+.posts:last-child {
+  border-bottom: none;
+}
+
+.posts h3,
+.posts .icons {
+  padding: 0.5rem;
+}
+
+
+.posts img {
+  max-width: 100%;
+  height: 450px;
+}
+
+.posts a {
+  color: var(--primary-purple);
+  font-size: 1.25rem;
+  transition: 0.3s;
+}
+
+.posts a:hover {
+  color: var(--primary-green);
+}

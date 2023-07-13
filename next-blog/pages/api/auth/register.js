@@ -10,6 +10,7 @@ export default async function handler(req, res) {
     client = await connectDatabase();
   } catch (err) {
     res.status(422).json({ message: "Cannot reach database." });
+    return;
   }
 
   const { username, email, password } = req.body;
@@ -25,11 +26,12 @@ export default async function handler(req, res) {
     res.status(422).json({ message: "Invalid input." });
     return;
   }
- 
+
   if (password.length < 5) {
     res
       .status(422)
       .json({ message: "Your password need to be atleast 6 characters." });
+    return;
   }
 
   const existingUser = await getUser(client, "blog", "users", email);

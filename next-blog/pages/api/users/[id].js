@@ -66,7 +66,8 @@ export default async function handler(req, res) {
       );
       res.status(201).json({ message: "Post updated.", post: updatedPost });
     } catch (err) {
-      console.log(err);
+      res.status(422).json({ message: "Failed to update post." });
+      return;
     }
   }
   /* method delete */
@@ -75,7 +76,8 @@ export default async function handler(req, res) {
       const deletedPost = await deleteCollection(client, "blog", "posts", id);
       res.status(201).json({ message: "Post deleted!" });
     } catch (err) {
-      console.log(err);
+      res.status(422).json({ message: "Failed to delete post." });
+      return;
     }
   }
   /* method get */

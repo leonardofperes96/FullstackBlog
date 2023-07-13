@@ -1,0 +1,72 @@
+.comments_content {
+  overflow-y: auto;
+}
+
+.comments_content::-webkit-scrollbar {
+  width: 8px; /* Largura da barra de rolagem */
+}
+
+/* Estilizando o fundo da barra de rolagem */
+.comments_content::-webkit-scrollbar-track {
+  background-color: #efefef;
+  width: 10px;
+}
+
+/* Estilizando a alça da barra de rolagem */
+.comments_content::-webkit-scrollbar-thumb {
+  background-color: var(--primary-purple);
+  width: 5px;
+  height: 5px;
+  border-radius: 4px;
+}
+
+.comments {
+  word-break: break-word;
+  padding: 0.5rem 1rem;
+}
+
+.comments h2 {
+  text-align: center;
+  margin: 0;
+}
+
+.comments_container {
+  display: grid;
+  grid-template-columns: 2fr 0.5fr;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.comment_info {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+}
+
+.comments li {
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+.button {
+  border: none;
+  background: none;
+}
+
+.delete {
+  font-size: 1.15rem;
+  color: red;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .comments h2 {
+    text-align: start;
+  }
+  .comments {
+    font-size: 0.75rem;
+  }
+  .delete{
+    font-size: 0.85rem;
+  }
+}

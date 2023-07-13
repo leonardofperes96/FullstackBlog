@@ -1,9 +1,15 @@
 import LoginForm from "@/components/LoginForm";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "../api/auth/[...nextauth]";
+import Head from "next/head";
 const LoginPage = () => {
   return (
     <>
+      <Head>
+        <title>Login Page</title>
+        <meta name="login" content="Users login page" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <LoginForm />
     </>
   );

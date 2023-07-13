@@ -10,6 +10,7 @@ export default async function handler(req, res) {
     client = await connectDatabase();
   } catch (err) {
     res.status(422).json({ message: "Could not reach the database." });
+    return;
   }
 
   if (req.method === "GET") {
